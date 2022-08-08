@@ -41,7 +41,10 @@ if (DM.IsScriptOnMainThread() == False):
 #########################################################
 ##  To do list v1.5
 ##  
+##  Check required libraries are installed and suggest installation method
+##
 ##  Check the templates we need are where the library says they are
+##  Dialog box before asking for template folder
 ##  
 ##  TIF output version
 ##  Create temporary image without needing to show it and save it?
@@ -273,14 +276,14 @@ def DoIt():
             
             ##check Wfile, first or not first
             if (Wfile == "First"):
-                OutName = 'nmRC_TEM_Report.docx'
+                OutName = 'GMS_TEM_Report.docx'
                 OutFile = Path(Outpath,OutName)     #v1.3 - where the user has selected
                 WOutFile = OutFile
                 Hfile = Path(Spath,'Header.docx')
                 ##Check if the file already exists
                 A=1
                 while (OutFile.exists()):
-                    OutName = 'nmRC_TEM_Report_'+str(A)+'.docx'
+                    OutName = 'GMS_TEM_Report_'+str(A)+'.docx'
                     OutFile = Path(Outpath,OutName)       #v 1.3 onwards - folder selected by dialog
                     WOutFile = OutFile
                     A = A+1       
@@ -292,7 +295,7 @@ def DoIt():
             print(OutFile)     
         else:    
             ##Single file
-            OutName = 'nmRC_TEM_Report_'+figname+'.docx'
+            OutName = 'GMS_TEM_Report_'+figname+'.docx'
             OutFile = Path(Outpath,OutName)      #Save to the user selected folder
             Hfile = Path(Spath,'Header.docx')
             #############################
@@ -300,13 +303,13 @@ def DoIt():
             ##Check if the outfile already exists / is open
             B = 1 ##I find the letter B visible and friendly
             while (OutFile.exists()):
-                OutName = 'nmRC_TEM_Report_'+figname+'_'+str(B)+'.docx'
+                OutName = 'GMS_TEM_Report_'+figname+'_'+str(B)+'.docx'
                 OutFile = Path(Outpath,OutName)   #v1.3 on, where user has said
                 B = B+1
 
 
         ##Take style from doc1
-        tdocument = Document('//nmrc-nas.nottingham.ac.uk/data/Data Processing Area/Scripts/Python scripts/GMS/nmRC TEM data report template/Header.docx')
+        tdocument = Document(Hfile)
         Ostyles = tdocument.styles
         section = tdocument.sections[0]
         header = section.header
@@ -336,13 +339,7 @@ def DoIt():
             
             ImageDocA = DM.GetFrontImageDocument()
             ImageDocA.SaveToFile('TIFF Format', Tfile2)
-            
-            #print("would save the file here")
-            #image saving handler is incapable error with:
-            #dmImg2.SaveImage("//nmrc-nas.nottingham.ac.uk/data/Data Processing Area/Scripts/Python scripts/GMS/nmRC TEM data report template/Tfile2.tif")
-            
-            #system can't find path error with:
-            #dmImg2.SaveImage("\\nmrc-nas.nottingham.ac.uk\data\Data Processing Area\Scripts\Python scripts\GMS\nmRC TEM data report template\Tfile2.tif")
+         
             
         except IOError:
             print("Could not open file, still in use?")
