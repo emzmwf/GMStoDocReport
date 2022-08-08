@@ -261,9 +261,8 @@ def DoIt():
         ###now get this new image
         dmImg2 = DM.GetFrontImage() # Get reference to front most image
         dmImg2.UpdateImage()
-
 	wid = dmImg2.GetImgWidth()
-        hgt = dmImg2.GetImgHeight()
+	hgt = dmImg2.GetImgHeight()
 	
 	
         ##Get today's date            
