@@ -6,8 +6,6 @@ Python running with Gatan Microscopy Suite
 
 numpy
 
-PIL/pillow
-
 pathlib
 
 docx
@@ -34,3 +32,4 @@ meta file selects the metadata to report. The script currently accesses the foll
 
 
 Any additional microscope info tags could be coded into the script and added to the meta.docx file to report. 
+restoration of PIL/pillow support for python filtering planned for future version
