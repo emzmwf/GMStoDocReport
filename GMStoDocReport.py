@@ -217,14 +217,13 @@ def DoIt():
         mag = (lstdict["mag"])
         StageX = (lstdict["StageX"])
         StageY = (lstdict["StageY"])
-
-        '''
-        ##################################################################
-        ## Commented out section - 					                    ##
-        ## This was to allow any filtering for a template to be run here##
-        ##################################################################
-
-        ###Create image from DM data via PIL
+	'''
+	##################################################################
+	## Commented out section - 					##
+	## This was to allow any filtering for a template to be run here##
+	##################################################################
+	
+	###Create image from DM data via PIL
         if (type !=23):
             image1 = Image.fromarray(dmImgData)
             ImMod = (image1.mode)   #Get this info
