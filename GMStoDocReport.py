@@ -218,10 +218,10 @@ def DoIt():
         StageX = (lstdict["StageX"])
         StageY = (lstdict["StageY"])
 
-	'''
+        '''
         ##################################################################
-        ## Commented out section - 					##
-	## This was to allow any filtering for a template to be run here##
+        ## Commented out section - 					                    ##
+        ## This was to allow any filtering for a template to be run here##
         ##################################################################
 
         ###Create image from DM data via PIL
