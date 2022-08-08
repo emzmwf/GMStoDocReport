@@ -218,10 +218,12 @@ def DoIt():
         StageX = (lstdict["StageX"])
         StageY = (lstdict["StageY"])
         '''
-        ##################################################################
-        ## Commented out section - 					##
-        ## This was to allow any filtering for a template to be run here###
-        #################################################################
+        ##############################################################
+        ## Commented out section                                    ##
+        ## This was to allow any filtering for a template           ##
+        ## to be run here                                           ##
+        ##############################################################
+
         ###Create image from DM data via PIL
         if (type !=23):
             image1 = Image.fromarray(dmImgData)
@@ -259,10 +261,10 @@ def DoIt():
         ###now get this new image
         dmImg2 = DM.GetFrontImage() # Get reference to front most image
         dmImg2.UpdateImage()
-	wid = dmImg2.GetImgWidth()
-	hgt = dmImg2.GetImgHeight()
-	
-	
+        wid = dmImg2.GetImgWidth()
+        hgt = dmImg2.GetImgHeight()
+        
+        
         ##Get today's date            
         from datetime import datetime
         Today = datetime.today().strftime('%Y%m%d')
@@ -479,5 +481,4 @@ else:
     print(OutName)
     del dmImgW
 ##end of dir
-
 
