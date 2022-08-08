@@ -1,7 +1,11 @@
 # to be run within GMS
 import DigitalMicrograph as DM
 
-from PIL import Image, ImageEnhance
+'''from PIL import Image, ImageEnhance'''
+# Note, these were installed in an earlier version to apply python filters
+# and left in in case I ever want to use them again
+# 
+
 import numpy as np
 
 ##Path handling via pathlib
@@ -214,9 +218,11 @@ def DoIt():
         StageX = (lstdict["StageX"])
         StageY = (lstdict["StageY"])
 
-        ###############################################
-        ##any filtering for a template to be run here##
-        ###############################################
+	'''
+        ##################################################################
+        ## Commented out section - 					##
+	## This was to allow any filtering for a template to be run here##
+        ##################################################################
 
         ###Create image from DM data via PIL
         if (type !=23):
@@ -236,7 +242,7 @@ def DoIt():
 
 
             dmImg2 = DM.CreateImage(dmImgData)
-        
+        '''
         if (type == 23):
             print("RGB image found")
             ##get width and height
@@ -256,6 +262,10 @@ def DoIt():
         dmImg2 = DM.GetFrontImage() # Get reference to front most image
         dmImg2.UpdateImage()
 
+	wid = dmImg2.GetImgWidth()
+        hgt = dmImg2.GetImgHeight()
+	
+	
         ##Get today's date            
         from datetime import datetime
         Today = datetime.today().strftime('%Y%m%d')
