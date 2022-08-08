@@ -6,6 +6,8 @@ Python running with Gatan Microscopy Suite
 
 numpy
 
+PIL/pillow
+
 pathlib
 
 docx
